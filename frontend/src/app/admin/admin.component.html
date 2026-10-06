@@ -1,0 +1,19 @@
+<!-- Admin reuses the dashboard for their own view -->
+<app-dashboard></app-dashboard>
+
+<div class="admin-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Admin Panel - User Management</mat-card-title>
+      <mat-card-subtitle>Only accessible via RBAC and JWT validation.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let user of users">
+          <span matListItemTitle>{{ user.name }} ({{ user.userId }})</span>
+          <span matListItemLine>Role: {{ user.role }}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
