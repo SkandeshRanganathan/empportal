@@ -37,11 +37,14 @@ Clean, responsive login card built with Angular Material.
 
 ![Login UI](docs/images/login-ui.png)
 
-### Role Selection
-The system natively handles role-based state management upon login.
+### Role-Based Dashboards
+The system natively handles role-based state management, protecting routes via JWT validation and Angular Guards.
 
-![Login as Admin](docs/images/login-admin.png)
-![Admin Dashboard Redirect](docs/images/admin-works.png)
+**General User View:**
+![General User Dashboard](docs/images/dashboard-user.png)
+
+**Admin View (with User Management):**
+![Admin Dashboard](docs/images/dashboard-admin.png)
 
 ## How to Run Locally
 
