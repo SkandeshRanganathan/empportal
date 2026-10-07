@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: Employee Portal API
+  version: 1.0.0
+  description: API documentation for the Employee Portal code challenge.
+servers:
+  - url: http://localhost:3000/api
+    description: Local development server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
+paths:
+  /auth/login:
+    post:
+      summary: Login to the portal
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  example: admin1
+                password:
+                  type: string
+                  example: password123
+                role:
+                  type: string
+                  example: Admin
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  token:
+                    type: string
+  /records:
+    get:
+      summary: Get user records
+      parameters:
+        - in: query
+          name: delay
+          schema:
+            type: integer
+          description: Artificial delay in milliseconds (e.g. 2000)
+      responses:
+        '200':
+          description: A list of records
+  /users:
+    get:
+      summary: Get all users (Admin only)
+      responses:
+        '200':
+          description: A list of users
